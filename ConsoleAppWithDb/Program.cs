@@ -16,6 +16,7 @@ namespace ConsoleAppWithDb
             AddStudent student = new AddStudent();
             UpdateStudent updateStudent = new UpdateStudent();
             DeleteStudent deleteStudent = new DeleteStudent();
+            View studentView = new View();
 
             //testing connection
             string connectionString ="Server=INTERN-PC4\\MSSQLSERVER01;Database=ConsoleAppWithDb;Trusted_Connection=True;";
@@ -35,9 +36,11 @@ namespace ConsoleAppWithDb
             //current page 
             while (true)
             {
-                Console.WriteLine("press 1 to add student");
+                Console.WriteLine("press 1 to add student and Deparment");
                 Console.WriteLine("press 2 to update Student ");
                 Console.WriteLine("press 3 to delete Student");
+                Console.WriteLine("press 4 to view Student");
+
 
 
                 int num = Convert.ToInt32(Console.ReadLine());
@@ -49,6 +52,7 @@ namespace ConsoleAppWithDb
                     case 1:
 
                         student.AddStudentData();
+                        student.AddDepartment();
                         break;
 
                     case 2:
@@ -58,6 +62,23 @@ namespace ConsoleAppWithDb
                         case 3:
                         deleteStudent.delete();
                         break;
+
+
+                    case 4:
+                        Console.WriteLine("to view all student Press 1");
+                        Console.WriteLine("to view student with id  Press 2");
+
+                        int selectview = Convert.ToInt32(Console.ReadLine());
+
+                        if (selectview == 1)
+                        {
+                            studentView.ViewAllStudents();
+                        }
+                        else if (selectview == 2)
+                        {
+                            studentView.viewstudentWithDepartment();
+                        }
+                            break;
 
 
                     default:
