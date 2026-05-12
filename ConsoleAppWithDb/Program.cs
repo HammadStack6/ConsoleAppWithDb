@@ -12,11 +12,13 @@ namespace ConsoleAppWithDb
     {
         static void Main(string[] args)
         {
-
+            Login login = new Login();
+            Users user = new Users();   
             AddStudent student = new AddStudent();
             UpdateStudent updateStudent = new UpdateStudent();
             DeleteStudent deleteStudent = new DeleteStudent();
             View studentView = new View();
+
 
             //testing connection
             string connectionString ="Server=INTERN-PC4\\MSSQLSERVER01;Database=ConsoleAppWithDb;Trusted_Connection=True;";
@@ -33,8 +35,34 @@ namespace ConsoleAppWithDb
             }
 
 
+            Console.WriteLine("Press 1 to Login");
+            Console.WriteLine("Press 2 to Signup");
+            int appstart = Convert.ToInt32(Console.ReadLine());
+
+            if (appstart == 1)
+            {
+
+                login.loginn();
+
+            }
+
+            else if (appstart == 2)
+            {
+
+                user.signup();
+            }
+
+                bool condition = login.IsLoggedIn;
+
+                if (condition == false) {
+                    Console.WriteLine("your password is in correct ");
+                }
+
+              
+            
+
             //current page 
-            while (true)
+            while (condition)
             {
                 Console.WriteLine("press 1 to add student and Deparment");
                 Console.WriteLine("press 2 to update Student ");

@@ -45,9 +45,11 @@
   <ItemGroup>
     <Compile Include="AddStudent.cs" />
     <Compile Include="DeleteStudent.cs" />
+    <Compile Include="Login.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UpdateStudent.cs" />
+    <Compile Include="Users.cs" />
     <Compile Include="View.cs" />
   </ItemGroup>
   <ItemGroup>

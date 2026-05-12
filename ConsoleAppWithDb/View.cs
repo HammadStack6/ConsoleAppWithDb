@@ -63,11 +63,11 @@ namespace ConsoleAppWithDb
                 department.departmentId As fromDepartmenttable,
                 department.departmentName
             from student
-            inner join department
-            on student.departmentId = department.departmentId
-            where student.id = @EnterIdForSearch";
+                inner join department
+                on student.departmentId = department.departmentId
+                where student.id = @EnterIdForSearch";
 
-            using (SqlCommand cmd = new SqlCommand(query, conn)) {
+                using (SqlCommand cmd = new SqlCommand(query, conn)) {
 
                 cmd.Parameters.AddWithValue("@EnterIdForSearch", EnterIdForSearch);
 
@@ -75,17 +75,17 @@ namespace ConsoleAppWithDb
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read()) {
-                    Console.WriteLine(
-          $"ID: {reader["id"]} | " +
-          $"Name: {reader["Name"]} | " +
-          $"Course: {reader["Course"]} | " +
-          $"Student Dept ID: {reader["fromStudenttable"]} | " +
-          $"Department Dept ID: {reader["fromDepartmenttable"]} | " +
-          $"Department Name: {reader["departmentName"]}"
-      );
+                Console.WriteLine(
+               $"ID: {reader["id"]} | " +
+               $"Name: {reader["Name"]} | " +
+               $"Course: {reader["Course"]} | " +
+               $"Student Dept ID: {reader["fromStudenttable"]} | " +
+               $"Department Dept ID: {reader["fromDepartmenttable"]} | " +
+               $"Department Name: {reader["departmentName"]}"
+                 );
+                 }
+               conn.Close();
                 }
-            conn.Close();
-            }
 
         }
     }
